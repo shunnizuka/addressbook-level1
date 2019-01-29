@@ -44,7 +44,7 @@ public class AddressBook {
     /**
      * Version info of the program.
      */
-    private static final String VERSION = "AddressBook Level 1 - Version 1.0";
+    private static final String VERSION = "AddessBook Level 1 - Version 1.0";
 
     /**
      * A decorative prefix added to the beginning of lines printed by AddressBook
@@ -66,6 +66,7 @@ public class AddressBook {
      * =========================================================================
      */
     private static final String MESSAGE_ADDED = "New person added: %1$s, Phone: %2$s, Email: %3$s";
+    private static final String MESSAGE_DUPLICATE_PERSON = "This person already exist: %1$s, Phone: %2$s, Email: %3$s";
     private static final String MESSAGE_ADDRESSBOOK_CLEARED = "Address book has been cleared!";
     private static final String MESSAGE_COMMAND_HELP = "%1$s: %2$s";
     private static final String MESSAGE_COMMAND_HELP_PARAMETERS = "\tParameters: %1$s";
@@ -430,7 +431,7 @@ public class AddressBook {
         ArrayList<String[]> personsFound = getPersonsWithNameContainingAnyKeyword(name);
         for(int i = 0; i < personsFound.size(); i++) {
             if(Arrays.equals(personToAdd, personsFound.get(i))) {
-                System.out.println("duplicate!");
+               return getMessageForDuplicateAddPerson(personToAdd);
             }
         }
 
@@ -448,6 +449,17 @@ public class AddressBook {
     private static String getMessageForSuccessfulAddPerson(String[] addedPerson) {
         return String.format(MESSAGE_ADDED,
                 getNameFromPerson(addedPerson), getPhoneFromPerson(addedPerson), getEmailFromPerson(addedPerson));
+    }
+
+		/**
+		 * Construct a feedback message for when the person to add already exist in the addressbook.
+		 * 
+		 * @param personToAdd duplicate person to add
+		 * @return duplicate add person feedback message
+		 */
+		private static String getMessageForDuplicateAddPerson(String[] personToAdd) {
+        return String.format(MESSAGE_DUPLICATE_PERSON, 
+						getNameFromPerson(personToAdd), getPhoneFromPerson(personToAdd), getEmailFromPerson(personToAdd));
     }
 
     /**
