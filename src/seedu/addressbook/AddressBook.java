@@ -44,7 +44,7 @@ public class AddressBook {
     /**
      * Version info of the program.
      */
-    private static final String VERSION = "AddessBook Level 1 - Version 1.0";
+    private static final String VERSION = "AddressBook Level 1 - Version 1.0";
 
     /**
      * A decorative prefix added to the beginning of lines printed by AddressBook
@@ -426,6 +426,14 @@ public class AddressBook {
 
         // add the person as specified
         final String[] personToAdd = decodeResult.get();
+        final Set<String> name = extractKeywordsFromFindPersonArgs(personToAdd[0]);
+        ArrayList<String[]> personsFound = getPersonsWithNameContainingAnyKeyword(name);
+        for(int i = 0; i < personsFound.size(); i++) {
+            if(Arrays.equals(personToAdd, personsFound.get(i))) {
+                System.out.println("duplicate!");
+            }
+        }
+
         addPersonToAddressBook(personToAdd);
         return getMessageForSuccessfulAddPerson(personToAdd);
     }
