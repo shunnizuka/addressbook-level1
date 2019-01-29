@@ -32,6 +32,10 @@
   list
   add Betsy Choo p/222222 e/benchoo@nus.edu.sg
   list
+  
+  # should detect attempt to add duplicate entry
+  add Adam Brown p/111111 e/adam@gmail.com
+  add Betsy Choo p/222222 e/benchoo@nus.edu.sg
 
   # order of phone and email should not matter
   add Charlie Dickson e/charlie.d@nus.edu.sg p/333333

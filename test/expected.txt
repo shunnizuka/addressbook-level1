@@ -138,6 +138,12 @@
 || 
 || 2 persons found!
 || ===================================================
+|| Enter command: || [Command entered:  add Adam Brown p/111111 e/adam@gmail.com]
+|| This person already exist: Adam Brown, Phone: 111111, Email: adam@gmail.com
+|| ===================================================
+|| Enter command: || [Command entered:  add Betsy Choo p/222222 e/benchoo@nus.edu.sg]
+|| This person already exist: Betsy Choo, Phone: 222222, Email: benchoo@nus.edu.sg
+|| ===================================================
 || Enter command: || [Command entered:  add Charlie Dickson e/charlie.d@nus.edu.sg p/333333]
 || New person added: Charlie Dickson, Phone: 333333, Email: charlie.d@nus.edu.sg
 || ===================================================
